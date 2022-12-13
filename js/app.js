@@ -1,8 +1,14 @@
 class Game {
     constructor() {
+        this.gameRestartBtn = document.getElementById('gameRestart')
         this.gameStatus = document.getElementById('gameStatus')
         this.xWins = document.getElementById('xWins')
         this.oWins = document.getElementById('oWins')
+        this.submitBtn = document.getElementById('submitBtn')
+        this.playerOne = document.getElementById('playerOne')
+        this.playerTwo = document.getElementById('playerTwo')
+
+
         this.winCount = {
             x: 0,
             o: 0
@@ -26,11 +32,20 @@ class Game {
             [2, 4, 6]
         ]
 
-        this.gameRestartBtn = document.getElementById('gameRestart')
+        this.players = {
+            player1: 'Player 1',
+            player2: 'Player 2'
+        }
+
+
+
         
     }
     
     init() {
+        this.playerOne.innerText = this.players.player1
+        this.playerTwo.innerText = this.players.player2
+        this.getPlayersNames()
         this.currPlayerTurn()
         this.handleCellClicked()
         this.gameRestartBtn.addEventListener('click', ()=> {
@@ -156,16 +171,34 @@ class Game {
         let oWinTotal = this.winCount.o
         let xWinTotal = this.winCount.x 
         
-        // console.log(`O wins: ${oWinTotal}, X wins: ${xWinTotal}`)
+        console.log(`O wins: ${oWinTotal}, X wins: ${xWinTotal}`)
 
-        if (oWinTotal == 10) {
-            this.gameStatus.innerText = 'PLAYER O IS THE SUPREME VICTOR'
-        } else if (xWinTotal == 10){
-            this.gameStatus.innerText = 'PLAYER X IS THE SUPREME VICTOR!'
+        if (oWinTotal == 3) {
+            this.gameStatus.innerText = `${this.players.player2} is the SUPREME VICTOR!`
+        } else if (xWinTotal == 3){
+            this.gameStatus.innerText = `${this.players.player1} is the SUPREME VICTOR!`
         }
 
         this.gameActive = false
-        this.restartGame()
+        // this.restartGame()
+    }
+
+    getPlayersNames() {
+        const submitBtn = this.submitBtn
+        const playerOne = this.playerOne
+        const playerTwo = this.playerTwo
+
+        
+        submitBtn.addEventListener('click', (e)=> {
+            e.preventDefault()
+            const player2Name = document.getElementById('player2').value 
+            const player1Name = document.getElementById('player1').value 
+            // console.log(player1Name, player2Name)
+            this.players.player1 = player1Name
+            this.players.player2 = player2Name
+            playerOne.innerText = this.players.player1
+            playerTwo.innerText = this.players.player2
+        })
     }
     
 

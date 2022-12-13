@@ -8,6 +8,7 @@ body {
 }
 
 .header {
+    position: relative;
     padding: 20px 0;
     height: 30vh;
     background-color: #005a9c;
@@ -83,7 +84,7 @@ button {
 }
 
 .win-count {
-    width: 100%;
+    width: 200px;
     height: 200px;
     background-color: #fff;
     border: 2px solid #005a92;
@@ -93,4 +94,20 @@ button {
 .tally {
     font-size: 28px;
     color: green;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+#playerForm {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    width: 25%;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 5px;
 }

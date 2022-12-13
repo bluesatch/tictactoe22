@@ -11,10 +11,21 @@
     <header class="header" id="header">
         <h1>tic tac toe</h1>
         <h2 class="game-status" id="gameStatus"></h2>
+        <form action="#" class="form" id="playerForm">
+            <label for="player1">
+                Player 1: 
+                <input type="text" maxlength="3" placeholder="Enter Player 1 Name" value='' name='player1' id='player1'/>
+            </label>
+            <label for="player2">
+                Player 2: 
+                <input type="text" maxlength="3" placeholder="Enter Player 2 Name" value='' name='player2' id='player2'/>
+            </label>
+            <input type="submit" id="submitBtn" class="submit-btn" value="Submit Players"/>
+        </form>
     </header>
     <main class="main" id="main">
         <section class="x-section red">
-            <h2 class="wins">x win totals</h2>
+            <h2 class="wins" id="playerOne"></h2>
             <div class="win-count" id="xWins"></div>
         </section>
         <section class="game-board" id="gameBoard">
@@ -29,7 +40,7 @@
             <div data-cell-index="8" class="cell"></div>
         </section>
         <section class="o-section blue">
-            <h2 class="wins blue">o win totals</h2>
+            <h2 class="wins blue" id="playerTwo"></h2>
             <div class="win-count blue" id="oWins"></div>
         </section>
     </main>
